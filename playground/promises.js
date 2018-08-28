@@ -4,7 +4,7 @@
 //         reslove('Hi it worked');
 //     },2500);
 
-// });
+// });`
 
 // somePromise.then((message)=>{
 //     console.log('success:',message);
@@ -28,7 +28,12 @@ var asyncAdd = (a,b)=>{
 
 asyncAdd(5,3).then((res)=>{
     console.log('result:',res);
+    return asyncAdd(res,33);
 },(errorMessage)=>{
     console.log('error:',errorMessage);
 }
-)
+).then((res)=>{
+    console.log("shld be 45",res);
+}).catch((errorMessage)=>{
+    console.log(errorMessage);
+});
